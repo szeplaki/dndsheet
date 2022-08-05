@@ -1,6 +1,8 @@
 init()
 
 function init(){
+    const test = document.getElementById("test");
+    console.log(test);
     console.log("hello js");
     const stat = document.getElementsByClassName("stat");
     for (const statElement of stat) {
@@ -50,20 +52,14 @@ function initiativeModifier(e) {
 }
 
 function activateCheckboxes(e) {
-    // const checkBoxes = document.getElementsByClassName("add-profBonus");
-    let checkboxSibling = e.currentTarget.parentElement.children[1].innerHTML;
-    const dataModifiers = document.querySelectorAll('[data-modifier]');
-    const classOfClickedCheckbox = e.currentTarget.parentElement.children[1].className;
-    // console.log(classOfClickedCheckbox);
-    for (const dataModifier of dataModifiers) {
-        if (dataModifier.dataset.modifier === classOfClickedCheckbox) {
-            // console.log(document.getElementById("level").value);
-            // console.log(dataModifier);
-            console.log(checkboxSibling);
-            //console.log(parseInt(dataModifier.innerHTML));
-            checkboxSibling = (parseInt(document.getElementById("level").value) + parseInt(dataModifier.innerHTML)).toString();
-            e.currentTarget.parentElement.children[1].innerHTML = checkboxSibling;
-        }
+    const place = e.currentTarget.parentElement.children[1];
+    const scoreName = place.className;
+    const profBonus = document.getElementById("level").value;
+    const modifier = document.getElementById(scoreName).innerText;
+    if (e.currentTarget.checked){
+        place.innerHTML = parseInt(profBonus) + parseInt(modifier);
+    } else {
+        place.innerHTML = modifier;
     }
 }
 
