@@ -71,7 +71,7 @@ form.charsheet :-ms-input-placeholder {
     color: #bbb;
 }
 form.charsheet ::placeholder {
-    color: #bbb;
+    color: red;
 }
 form.charsheet label {
     text-transform: uppercase;
@@ -490,22 +490,25 @@ form.charsheet main section.combat > div.deathsaves > div > div.label label {
     font-size: 10px;
 }
 form.charsheet main section.combat > div.deathsaves > div > div.marks {
+
     display: flex;
-    flex: 2;
+    /*flex: 1;*/
     flex-direction: column;
-    align-items: center;
+    justify-content: space-around;
+    /*align-items: center;*/
 }
 form.charsheet main section.combat > div.deathsaves > div > div.marks div.deathsuccesses, form.charsheet main section.combat > div.deathsaves > div > div.marks div.deathfails {
     display: flex;
-    align-items: center;
+    /*align-items: center;*/
+    justify-content: center;
 }
 form.charsheet main section.combat > div.deathsaves > div > div.marks div.deathsuccesses label, form.charsheet main section.combat > div.deathsaves > div > div.marks div.deathfails label {
     font-size: 8px;
     text-align: right;
-    flex: 1 50%;
+    /*flex: 1 50%;*/
 }
 form.charsheet main section.combat > div.deathsaves > div div.bubbles {
-    flex: 1 40%;
+    /*flex: 1 40%;*/
     margin-left: 5px;
 }
 form.charsheet main section.combat > div.deathsaves > div div.bubbles input[type=checkbox] {

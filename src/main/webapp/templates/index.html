@@ -12,21 +12,33 @@
     <title>DND</title>
 </head>
 <body>
-<form class="charsheet">
+<form class="charsheet" method="post">
     <header>
         <section class="charname">
-            <label>Character Name</label><input name="charname" placeholder="Thoradin Fireforge"/>
+            <label>Character Name</label><input name="charName" th:placeholder="${character.characterName}" required>
         </section>
         <section class="misc">
             <ul>
                 <li>
-<!--                    <label>Class & Level</label><input name="classlevel" placeholder="Paladin 2"/>-->
-                    <label>Class</label><input name="class" placeholder="Paladin"/>
+                    <label>Class</label>
+                    <select name="class" id="class">
+                        <option value="12">Barbarian</option>
+                        <option value="8">Bard</option>
+                        <option value="8">Cleric</option>
+                        <option value="8">Druid</option>
+                        <option value="10">Fighter</option>
+                        <option value="8">Monk</option>
+                        <option value="10">Paladin</option>
+                        <option value="10">Ranger</option>
+                        <option value="8">Rouge</option>
+                        <option value="6">Sorcerer</option>
+                        <option value="8">Warlock</option>
+                        <option value="6">Wizard</option>
+                    </select>
                 </li>
                 <li>
                     <label>Level</label>
                     <select name="level" id="level">
-<!--                        <input name="level" placeholder="2"/>-->
                         <option value="2">1</option>
                         <option value="2">2</option>
                         <option value="2">3</option>
@@ -54,10 +66,10 @@
 
                 </li>
                 <li>
-                    <label>Background</label><input name="background" placeholder="Acolyte"/>
+                    <label>Background</label><input name="backGround" placeholder="Acolyte"/>
                 </li>
                 <li>
-                    <label>Player Name</label><input name="playername"
+                    <label>Player Name</label><input name="playerName"
                                                                       placeholder="Player McPlayerface">
                 </li>
                 <li>
@@ -67,8 +79,11 @@
                     <label>Alignment</label><input name="alignment" placeholder="Lawful Good"/>
                 </li>
                 <li>
-                    <label>Experience Points</label><input name="experiencepoints"
+                    <label>Experience Points</label><input name="experiencePoints"
                                                                                   placeholder="3240"/>
+                </li>
+                <li>
+                    <button type="submit" id="sending">Save</button>
                 </li>
             </ul>
         </section>
@@ -81,7 +96,7 @@
                         <li>
                             <div class="score">
                                 <label>Strength</label>
-                                <input type="number" min="0" max="20" name="Strengthscore" placeholder="10" class="stat"/>
+                                <input type="number" min="0" max="20" name="strengthCore" placeholder="10" class="stat" th:placeholder="${character.strength}" required>
                             </div>
                             <div class="modifier">
                                 <div class="statmod" data-modifier="str" id="str">+0</div>
@@ -90,7 +105,7 @@
                         <li>
                             <div class="score">
                                 <label>Dexterity</label>
-                                <input type="number" min="0" max="20" name="Dexterityscore" id="dexter" placeholder="10" class="stat"/>
+                                <input type="number" min="0" max="20" name="dexterityScore" id="dexter" placeholder="10" class="stat" th:placeholder="${character.dexterity}" required>
                             </div>
                             <div class="modifier">
                                 <div class="statmod" data-modifier="dex" id="dex">+0</div>
@@ -99,7 +114,7 @@
                         <li>
                             <div class="score">
                                 <label>Constitution</label>
-                                <input type="number" min="0" max="20" name="Constitutionscore" placeholder="10" class="stat"/>
+                                <input type="number" min="0" max="20" name="constitutionScore" placeholder="10" class="stat" th:placeholder="${character.constitution}" required>
                             </div>
                             <div class="modifier">
                                 <div class="statmod" data-modifier="con" id="con">+0</div>
@@ -108,7 +123,7 @@
                         <li>
                             <div class="score">
                                 <label>Wisdom</label>
-                                <input type="number" min="0" max="20" name="Wisdomscore" id="wisdom" placeholder="10" class="stat"/>
+                                <input type="number" min="0" max="20" name="wisdomScore" id="wisdom" placeholder="10" class="stat" th:placeholder="${character.wisdom}" required>
                             </div>
                             <div class="modifier">
                                 <div class="statmod" data-modifier="wis" id="wis">+0</div>
@@ -117,7 +132,7 @@
                         <li>
                             <div class="score">
                                 <label>Intelligence</label>
-                                <input type="number" min="0" max="20" name="Intelligencescore" placeholder="10" class="stat"/>
+                                <input type="number" min="0" max="20" name="intelligenceScore" placeholder="10" class="stat" th:placeholder="${character.intelligence}" required>
                             </div>
                             <div class="modifier">
                                 <div class="statmod" data-modifier="int" id="int">+0</div>
@@ -126,7 +141,7 @@
                         <li>
                             <div class="score">
                                 <label>Charisma</label>
-                                <input type="number" min="0" max="20" name="Charismascore" placeholder="10" class="stat"/>
+                                <input type="number" min="0" max="20" name="charismaScore" placeholder="10" class="stat" th:placeholder="${character.charisma}" required>
                             </div>
                             <div class="modifier">
                                 <div class="statmod" data-modifier="cha" id="cha">+0</div>
@@ -347,16 +362,16 @@
                         </div>
                         <div class="marks">
                             <div class="deathsuccesses">
-                                <label>Successes</label>
-                                <div class="bubbles">
+                                <label for="ize">Success</label>
+                                <div id="ize" class="bubbles">
                                     <input name="deathsuccess1" type="checkbox"/>
                                     <input name="deathsuccess2" type="checkbox"/>
                                     <input name="deathsuccess3" type="checkbox"/>
                                 </div>
                             </div>
                             <div class="deathfails">
-                                <label>Failures</label>
-                                <div class="bubbles">
+                                <label for="mize">Failure</label>
+                                <div id="mize" class="bubbles">
                                     <input name="deathfail1" type="checkbox"/>
                                     <input name="deathfail2" type="checkbox"/>
                                     <input name="deathfail3" type="checkbox"/>
