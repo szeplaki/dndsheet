@@ -17,6 +17,12 @@ function init(){
     const levelValue = document.getElementById("level");
     levelValue.addEventListener("change", proficiencyBonusModifier);
 
+    const profBonus = document.getElementById("prof-bonus");
+    profBonus.addEventListener("change", function (event) {
+        console.log("hello");
+    });
+    //////////////////////////////////////////////////
+
     const checkBoxes = document.getElementsByClassName("add-profBonus");
     for (const checkBox of checkBoxes) {
         checkBox.addEventListener("change", activateCheckboxes);
@@ -41,9 +47,21 @@ function armorClassModifier(e) {
     armorClassDiv.value = baseArmor + modifierCalculator;
 }
 
+function overrideSkills() {
+    const checkBoxValues = document.getElementsByClassName("add-profBonus");
+}
+
 function proficiencyBonusModifier(e) {
     const profBonus = document.getElementById("prof-bonus");
-    profBonus.value = document.getElementById("level").value;
+
+    if (profBonus.value !== document.getElementById("level").value) {
+        profBonus.value = document.getElementById("level").value;
+        const checkBoxes = document.getElementsByClassName("add-profBonus");
+        for (const checkBox of checkBoxes) {
+            refreshCheckboxes(checkBox);
+        }
+
+    }
 }
 
 function initiativeModifier(e) {
@@ -63,6 +81,18 @@ function activateCheckboxes(e) {
     }
 }
 
+
+function refreshCheckboxes(checkBox) {
+    const place = checkBox.parentElement.children[1];
+    const scoreName = place.className;
+    const profBonus = document.getElementById("level").value;
+    const modifier = document.getElementById(scoreName).innerText;
+    if (checkBox.checked){
+        place.innerHTML = parseInt(profBonus) + parseInt(modifier);
+    } else {
+        place.innerHTML = modifier;
+    }
+}
 function passiveWisdomModifier(e) {
     const baseArmor = 10;
     const passiveWisdomDiv = document.getElementById("passiveWisdom");

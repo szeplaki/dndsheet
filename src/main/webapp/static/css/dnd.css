@@ -494,7 +494,7 @@ form.charsheet main section.combat > div.deathsaves > div > div.marks {
     display: flex;
     /*flex: 1;*/
     flex-direction: column;
-    justify-content: space-around;
+    /*justify-content: space-around;*/
     /*align-items: center;*/
 }
 form.charsheet main section.combat > div.deathsaves > div > div.marks div.deathsuccesses, form.charsheet main section.combat > div.deathsaves > div > div.marks div.deathfails {
