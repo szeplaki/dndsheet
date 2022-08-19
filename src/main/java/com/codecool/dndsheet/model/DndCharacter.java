@@ -3,7 +3,7 @@ package com.codecool.dndsheet.model;
 public class DndCharacter {
     private int id;
     private String characterName;
-    private int className;
+    private int dice;
     private int characterLevel;
     private int strength;
     private int dexterity;
@@ -12,9 +12,9 @@ public class DndCharacter {
     private int wisdom;
     private int charisma;
 
-    public DndCharacter(String characterName, int className, int characterLevel, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
+    public DndCharacter(String characterName, int dice, int characterLevel, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
         this.characterName = characterName;
-        this.className = className;
+        this.dice = dice;
         this.characterLevel = characterLevel;
         this.strength = strength;
         this.dexterity = dexterity;
@@ -40,12 +40,12 @@ public class DndCharacter {
         this.characterName = characterName;
     }
 
-    public int getClassName() {
-        return className;
+    public int getDice() {
+        return dice;
     }
 
-    public void setClassName(int className) {
-        this.className = className;
+    public void setDice(int dice) {
+        this.dice = dice;
     }
 
     public int getCharacterLevel() {

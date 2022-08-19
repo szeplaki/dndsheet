@@ -50,7 +50,7 @@ public class MainPageController extends HttpServlet {
 
         DndCharacter character = dataBaseManager.getCharacterDaoJDBC().get();
         character.setCharacterName(charName);
-        character.setClassName(charClass);
+        character.setDice(charClass);
         character.setCharacterLevel(level);
         character.setStrength(strengthCore);
         character.setDexterity(dexterityScore);

@@ -15,7 +15,7 @@
 <form class="charsheet" method="post">
     <header>
         <section class="charname">
-            <label>Character Name</label><input name="charName" th:placeholder="${character.characterName}" required>
+            <label>Character Name</label><input name="charName" th:value="${character.characterName}" required>
         </section>
         <section class="misc">
             <ul>
@@ -23,6 +23,7 @@
                     <label>Class</label>
 
                     <select class="character-class" name="class" id="class">
+                        <option value="none" selected disabled hidden th:value="${character.dice}">Select class</option>
                         <option value="12">Barbarian</option>
                         <option value="8">Bard</option>
                         <option value="8">Cleric</option>
@@ -35,23 +36,12 @@
                         <option value="6">Sorcerer</option>
                         <option value="8">Warlock</option>
                         <option value="6">Wizard</option>
-<!--                        <option value="barbarian">Barbarian</option>-->
-<!--                        <option value='bard' other-value="8">Bard</option>-->
-<!--                        <option value="cleric">Cleric</option>-->
-<!--                        <option value="druid">Druid</option>-->
-<!--                        <option value="fighter">Fighter</option>-->
-<!--                        <option value="monk">Monk</option>-->
-<!--                        <option value="paladin">Paladin</option>-->
-<!--                        <option value="ranger">Ranger</option>-->
-<!--                        <option value="rouge">Rouge</option>-->
-<!--                        <option value="sorcerer">Sorcerer</option>-->
-<!--                        <option value="warlock">Warlock</option>-->
-<!--                        <option value="wizard">Wizard</option>-->
                     </select>
                 </li>
                 <li>
                     <label>Level</label>
                     <select name="level" id="level">
+                        <option value="none" selected disabled hidden th:value="${character.characterLevel}">Select level</option>
                         <option value="2">1</option>
                         <option value="2">2</option>
                         <option value="2">3</option>
@@ -75,15 +65,12 @@
                     </select>
 
 
-
-
                 </li>
                 <li>
                     <label>Background</label><input name="backGround" placeholder="Acolyte"/>
                 </li>
                 <li>
-                    <label>Player Name</label><input name="playerName"
-                                                                      placeholder="Player McPlayerface">
+                    <label>Player Name</label><input name="playerName" placeholder="Player McPlayerface">
                 </li>
                 <li>
                     <label>Race</label><input name="race" placeholder="Half-elf"/>
@@ -92,8 +79,7 @@
                     <label>Alignment</label><input name="alignment" placeholder="Lawful Good"/>
                 </li>
                 <li>
-                    <label>Experience Points</label><input name="experiencePoints"
-                                                                                  placeholder="3240"/>
+                    <label>Experience Points</label><input name="experiencePoints" placeholder="3240"/>
                 </li>
                 <li>
                     <button type="submit" id="sending">Save</button>
@@ -109,7 +95,7 @@
                         <li>
                             <div class="score">
                                 <label>Strength</label>
-                                <input type="number" min="0" max="20" name="strengthCore" placeholder="10" class="stat" th:placeholder="${character.strength}" required>
+                                <input type="number" min="0" max="20" name="strengthCore" placeholder="10" class="stat" th:value="${character.strength}" required>
                             </div>
                             <div class="modifier">
                                 <div class="statmod" data-modifier="str" id="str">+0</div>
@@ -118,7 +104,7 @@
                         <li>
                             <div class="score">
                                 <label>Dexterity</label>
-                                <input type="number" min="0" max="20" name="dexterityScore" id="dexter" placeholder="10" class="stat" th:placeholder="${character.dexterity}" required>
+                                <input type="number" min="0" max="20" name="dexterityScore" id="dexter" placeholder="10" class="stat" th:value="${character.dexterity}" required>
                             </div>
                             <div class="modifier">
                                 <div class="statmod" data-modifier="dex" id="dex">+0</div>
@@ -127,7 +113,7 @@
                         <li>
                             <div class="score">
                                 <label>Constitution</label>
-                                <input type="number" min="0" max="20" name="constitutionScore" placeholder="10" class="stat" th:placeholder="${character.constitution}" required>
+                                <input type="number" min="0" max="20" name="constitutionScore" placeholder="10" class="stat" th:value="${character.constitution}" required>
                             </div>
                             <div class="modifier">
                                 <div class="statmod" data-modifier="con" id="con">+0</div>
@@ -136,7 +122,7 @@
                         <li>
                             <div class="score">
                                 <label>Wisdom</label>
-                                <input type="number" min="0" max="20" name="wisdomScore" id="wisdom" placeholder="10" class="stat" th:placeholder="${character.wisdom}" required>
+                                <input type="number" min="0" max="20" name="wisdomScore" id="wisdom" placeholder="10" class="stat" th:value="${character.wisdom}" required>
                             </div>
                             <div class="modifier">
                                 <div class="statmod" data-modifier="wis" id="wis">+0</div>
@@ -145,7 +131,7 @@
                         <li>
                             <div class="score">
                                 <label>Intelligence</label>
-                                <input type="number" min="0" max="20" name="intelligenceScore" placeholder="10" class="stat" th:placeholder="${character.intelligence}" required>
+                                <input type="number" min="0" max="20" name="intelligenceScore" placeholder="10" class="stat" th:value="${character.intelligence}" required>
                             </div>
                             <div class="modifier">
                                 <div class="statmod" data-modifier="int" id="int">+0</div>
@@ -154,7 +140,7 @@
                         <li>
                             <div class="score">
                                 <label>Charisma</label>
-                                <input type="number" min="0" max="20" name="charismaScore" placeholder="10" class="stat" th:placeholder="${character.charisma}" required>
+                                <input type="number" min="0" max="20" name="charismaScore" placeholder="10" class="stat" th:value="${character.charisma}" required>
                             </div>
                             <div class="modifier">
                                 <div class="statmod" data-modifier="cha" id="cha">+0</div>

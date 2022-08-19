@@ -49,11 +49,11 @@ public class CharacterDaoJDBC implements CharacterDao {
     @Override
     public void update(DndCharacter character) {
         try (Connection conn = dataSource.getConnection()) {
-            String sql = "UPDATE dnd_character SET character_name = ?, class_name = ?, character_level = ?, strength = ?, dexterity = ?, constitution = ?, intelligence = ?, wisdom = ?, charisma = ? WHERE id = ?";
+            String sql = "UPDATE dnd_character SET character_name = ?, dice = ?, character_level = ?, strength = ?, dexterity = ?, constitution = ?, intelligence = ?, wisdom = ?, charisma = ? WHERE id = ?";
             PreparedStatement st = conn.prepareStatement(sql);
 
             st.setString(1, character.getCharacterName());
-            st.setInt(2, character.getClassName());
+            st.setInt(2, character.getDice());
             st.setInt(3, character.getCharacterLevel());
             st.setInt(4, character.getStrength());
             st.setInt(5, character.getDexterity());
