@@ -21,7 +21,8 @@
             <ul>
                 <li>
                     <label>Class</label>
-                    <select name="class" id="class">
+
+                    <select class="character-class" name="class" id="class">
                         <option value="12">Barbarian</option>
                         <option value="8">Bard</option>
                         <option value="8">Cleric</option>
@@ -34,6 +35,18 @@
                         <option value="6">Sorcerer</option>
                         <option value="8">Warlock</option>
                         <option value="6">Wizard</option>
+<!--                        <option value="barbarian">Barbarian</option>-->
+<!--                        <option value='bard' other-value="8">Bard</option>-->
+<!--                        <option value="cleric">Cleric</option>-->
+<!--                        <option value="druid">Druid</option>-->
+<!--                        <option value="fighter">Fighter</option>-->
+<!--                        <option value="monk">Monk</option>-->
+<!--                        <option value="paladin">Paladin</option>-->
+<!--                        <option value="ranger">Ranger</option>-->
+<!--                        <option value="rouge">Rouge</option>-->
+<!--                        <option value="sorcerer">Sorcerer</option>-->
+<!--                        <option value="warlock">Warlock</option>-->
+<!--                        <option value="wizard">Wizard</option>-->
                     </select>
                 </li>
                 <li>
@@ -167,32 +180,32 @@
                             <li>
                                 <label>Strength</label>
                                 <div class="str">+0</div>
-                                <input name="Strength-save-prof" type="checkbox" class="add-profBonus" id="test"/>
+                                <input name="Strength-save-prof" type="checkbox" class="add-profBonus" id="strength"/>
                             </li>
                             <li>
                                 <label>Dexterity</label>
                                 <div class="dex">+0</div>
-                                <input name="Dexterity-save-prof" type="checkbox" class="add-profBonus"/>
+                                <input name="Dexterity-save-prof" type="checkbox" class="add-profBonus" id="dexterity"/>
                             </li>
                             <li>
                                 <label>Constitution</label>
                                 <div class="con">+0</div>
-                                <input name="Constitution-save-prof" type="checkbox" class="add-profBonus"/>
+                                <input name="Constitution-save-prof" type="checkbox" class="add-profBonus" id="constitution"/>
                             </li>
                             <li>
                                 <label>Wisdom</label>
                                 <div class="wis">+0</div>
-                                <input name="Wisdom-save-prof" type="checkbox" class="add-profBonus"/>
+                                <input name="Wisdom-save-prof" type="checkbox" class="add-profBonus" id="wisdom-throw"/>
                             </li>
                             <li>
                                 <label>Intelligence</label>
                                 <div class="int">+0</div>
-                                <input name="Intelligence-save-prof" type="checkbox" class="add-profBonus"/>
+                                <input name="Intelligence-save-prof" type="checkbox" class="add-profBonus" id="intelligence"/>
                             </li>
                             <li>
                                 <label>Charisma</label>
                                 <div class="cha">+0</div>
-                                <input name="Charisma-save-prof" type="checkbox" class="add-profBonus"/>
+                                <input name="Charisma-save-prof" type="checkbox" class="add-profBonus" id="charisma"/>
                             </li>
                         </ul>
                         <div class="label">
@@ -346,7 +359,7 @@
                 <div class="hitdice">
                     <div>
                         <div class="total">
-                            <label onclick="totalhd_clicked()">Total</label><input name="totalhd"
+                            <label onclick="totalhd_clicked()">Total</label><input id="total-hd" name="totalhd"
                                                                                                  placeholder="2d10"
                                                                                                  type="text"/>
                         </div>
