@@ -12,19 +12,18 @@
     <title>DND</title>
 </head>
 <body>
-<form action="/sheetfiller" class="charsheet" method="post">
-    <input type="hidden" name="character" th:value="${character.id}">
+<form action="/new-character" class="charsheet" method="post">
     <header>
         <section class="charname">
-            <label>Character Name</label><input name="charName" th:value="${character.characterName}" required>
+            <label>Character Name</label>
+            <input name="charName" placeholder="Thoradin Fireforge" required>
         </section>
         <section class="misc">
             <ul>
                 <li>
                     <label>Class</label>
-                    <input type="hidden" name="class" th:value="${character.dice}">
-                    <select class="character-class" id="class">
-                        <option selected disabled hidden th:value="${character.dice}">Select class</option>
+
+                    <select class="character-class" id="class" name="class">
                         <option value="12">Barbarian</option>
                         <option value="8">Bard</option>
                         <option value="8">Cleric</option>
@@ -41,9 +40,7 @@
                 </li>
                 <li>
                     <label>Level</label>
-                    <input type="hidden" name="level" th:value="${character.characterLevel}">
-                    <select id="level">
-                        <option selected disabled hidden th:value="${character.characterLevel}">Select level</option>
+                    <select id="level" name="level">
                         <option value="2">1</option>
                         <option value="2">2</option>
                         <option value="2">3</option>
@@ -100,7 +97,7 @@
                         <li>
                             <div class="score">
                                 <label>Strength</label>
-                                <input type="number" min="0" max="20" name="strengthCore" placeholder="10" class="stat" th:value="${character.strength}" required>
+                                <input type="number" min="0" max="20" name="strengthCore" placeholder="10" class="stat" required>
                             </div>
                             <div class="modifier">
                                 <div class="statmod" data-modifier="str" id="str">+0</div>
@@ -109,7 +106,7 @@
                         <li>
                             <div class="score">
                                 <label>Dexterity</label>
-                                <input type="number" min="0" max="20" name="dexterityScore" id="dexter" placeholder="10" class="stat" th:value="${character.dexterity}" required>
+                                <input type="number" min="0" max="20" name="dexterityScore" id="dexter" placeholder="10" class="stat" required>
                             </div>
                             <div class="modifier">
                                 <div class="statmod" data-modifier="dex" id="dex">+0</div>
@@ -118,7 +115,7 @@
                         <li>
                             <div class="score">
                                 <label>Constitution</label>
-                                <input type="number" min="0" max="20" name="constitutionScore" placeholder="10" class="stat" th:value="${character.constitution}" required>
+                                <input type="number" min="0" max="20" name="constitutionScore" placeholder="10" class="stat" required>
                             </div>
                             <div class="modifier">
                                 <div class="statmod" data-modifier="con" id="con">+0</div>
@@ -127,7 +124,7 @@
                         <li>
                             <div class="score">
                                 <label>Wisdom</label>
-                                <input type="number" min="0" max="20" name="wisdomScore" id="wisdom" placeholder="10" class="stat" th:value="${character.wisdom}" required>
+                                <input type="number" min="0" max="20" name="wisdomScore" id="wisdom" placeholder="10" class="stat" required>
                             </div>
                             <div class="modifier">
                                 <div class="statmod" data-modifier="wis" id="wis">+0</div>
@@ -136,7 +133,7 @@
                         <li>
                             <div class="score">
                                 <label>Intelligence</label>
-                                <input type="number" min="0" max="20" name="intelligenceScore" placeholder="10" class="stat" th:value="${character.intelligence}" required>
+                                <input type="number" min="0" max="20" name="intelligenceScore" placeholder="10" class="stat" required>
                             </div>
                             <div class="modifier">
                                 <div class="statmod" data-modifier="int" id="int">+0</div>
@@ -145,7 +142,7 @@
                         <li>
                             <div class="score">
                                 <label>Charisma</label>
-                                <input type="number" min="0" max="20" name="charismaScore" placeholder="10" class="stat" th:value="${character.charisma}" required>
+                                <input type="number" min="0" max="20" name="charismaScore" placeholder="10" class="stat" required>
                             </div>
                             <div class="modifier">
                                 <div class="statmod" data-modifier="cha" id="cha">+0</div>
@@ -319,7 +316,7 @@
                     <div>
                         <label>Armor Class</label>
                         <input name="ac" id="armor-class" placeholder="10" type="text" disabled/>
-<!--                        <span id="armor-class">10</span>-->
+                        <!--                        <span id="armor-class">10</span>-->
                     </div>
                 </div>
                 <div class="initiative">
@@ -337,7 +334,7 @@
                     <div class="regular">
                         <div class="max">
                             <label>Hit Point Maximum</label><input name="maxhp" placeholder="10"
-                                                                               type="text"/>
+                                                                   type="text"/>
                         </div>
                         <div class="current">
                             <label>Current Hit Points</label><input name="currenthp" type="text"/>
@@ -351,8 +348,8 @@
                     <div>
                         <div class="total">
                             <label onclick="totalhd_clicked()">Total</label><input id="total-hd" name="totalhd"
-                                                                                                 placeholder="2d10"
-                                                                                                 type="text"/>
+                                                                                   placeholder="2d10"
+                                                                                   type="text"/>
                         </div>
                         <div class="remaining">
                             <label>Hit Dice</label><input name="remaininghd" type="text"/>

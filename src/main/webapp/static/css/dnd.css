@@ -71,7 +71,7 @@ form.charsheet :-ms-input-placeholder {
     color: #bbb;
 }
 form.charsheet ::placeholder {
-    color: red;
+    color: #bbb;
 }
 form.charsheet label {
     text-transform: uppercase;
@@ -542,7 +542,7 @@ form.charsheet main section.attacksandspellcasting > div > table {
 }
 form.charsheet main section.attacksandspellcasting > div > table th {
     font-size: 10px;
-    color: #ddd;
+    color: #bbb;
 }
 form.charsheet main section.attacksandspellcasting > div > table input {
     width: calc(100% - 4px);
@@ -649,4 +649,30 @@ form.charsheet main section.features div textarea {
     border: 0;
     padding: 5px;
     height: 43em;
+}
+
+.back-link {
+    border: 1px solid dimgrey;
+    margin-left: 10px;
+    border-radius: 2px;
+    text-align: center;
+    text-decoration-line: none;
+    color: black;
+    background-color: #eeeeee;
+    height: 24px;
+}
+
+.back-link:hover {
+    background-color: #dddddd;
+}
+
+.page-color {
+    background-color: mediumseagreen;
+    text-align: center;
+    color: blue;
+}
+.selection {
+    background-color: mediumseagreen;
+    border-color: darkslategray;
+    border-radius: 6px;
 }

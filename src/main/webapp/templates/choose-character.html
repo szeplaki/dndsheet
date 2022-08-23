@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Codecool" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <link rel="stylesheet" type="text/css" href="/static/css/dnd.css">
+
+    <script defer src="/static/js/redirect.js"></script>
+
+    <title>DND</title>
+</head>
+<body class="page-color">
+    <h1>Choose a character!</h1>
+    <form action="/sheetfiller">
+        <select name="characters" id="class" required class="selection">
+            <option value="0" selected>Select one</option>
+            <option th:each="i : ${character}" th:value="${i.id}" th:text="${i.characterName}" ></option>
+        </select>
+        <br><br>
+        <button type="submit" id='submit' class="selection" disabled>Load character</button>
+    </form>
+    <br>
+    <h3>Go to add, if you don't have yet!</h3>
+    <h3>&#11015</h3>
+    <a href="/add-character">Add new character</a>
+</body>
+</html>

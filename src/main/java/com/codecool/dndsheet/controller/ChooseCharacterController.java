@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = {"/"})
-public class MainPageController extends HttpServlet {
+@WebServlet(urlPatterns = {"/choose-character"})
+public class ChooseCharacterController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -25,6 +25,7 @@ public class MainPageController extends HttpServlet {
         TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(req.getServletContext());
         WebContext context = new WebContext(req, resp, req.getServletContext());
 
-        engine.process("main-page.html", context, resp.getWriter());
+        context.setVariable("character", characterDaoJDBC.getAll());
+        engine.process("choose-character.html", context, resp.getWriter());
     }
 }
