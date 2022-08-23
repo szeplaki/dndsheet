@@ -12,7 +12,37 @@ public class DndCharacter {
     private int wisdom;
     private int charisma;
 
-    public DndCharacter(String characterName, int dice, int characterLevel, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma) {
+    private int copper;
+
+    private int silver;
+
+    private int gold;
+
+    public int getCopper() {
+        return copper;
+    }
+
+    public void setCopper(int copper) {
+        this.copper = copper;
+    }
+
+    public int getSilver() {
+        return silver;
+    }
+
+    public void setSilver(int silver) {
+        this.silver = silver;
+    }
+
+    public int getGold() {
+        return gold;
+    }
+
+    public void setGold(int gold) {
+        this.gold = gold;
+    }
+
+    public DndCharacter(String characterName, int dice, int characterLevel, int strength, int dexterity, int constitution, int intelligence, int wisdom, int charisma, int copper, int silver, int gold) {
         this.characterName = characterName;
         this.dice = dice;
         this.characterLevel = characterLevel;
@@ -22,6 +52,9 @@ public class DndCharacter {
         this.intelligence = intelligence;
         this.wisdom = wisdom;
         this.charisma = charisma;
+        this.copper = copper;
+        this.silver = silver;
+        this.gold = gold;
     }
 
     public int getId() {

@@ -19,7 +19,7 @@ public class CharacterDaoJDBC implements CharacterDao {
     @Override
     public void add(DndCharacter character) {
         try(Connection conn = dataSource.getConnection()) {
-            String sql = "INSERT INTO dnd_character (character_name, dice, character_level, strength, dexterity, constitution, intelligence, wisdom, charisma) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO dnd_character (character_name, dice, character_level, strength, dexterity, constitution, intelligence, wisdom, charisma, copper, silver, gold) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement st = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             st.setString(1, character.getCharacterName());
             st.setInt(2, character.getDice());
@@ -30,6 +30,9 @@ public class CharacterDaoJDBC implements CharacterDao {
             st.setInt(7, character.getIntelligence());
             st.setInt(8, character.getWisdom());
             st.setInt(9, character.getCharisma());
+            st.setInt(10, character.getCopper());
+            st.setInt(11, character.getSilver());
+            st.setInt(12, character.getGold());
             st.executeUpdate();
             ResultSet rs = st.getGeneratedKeys();
             rs.next();
@@ -47,7 +50,7 @@ public class CharacterDaoJDBC implements CharacterDao {
             ResultSet rs = conn.createStatement().executeQuery(sql);
             List<DndCharacter> result = new ArrayList<>();
             while (rs.next()) {
-                DndCharacter dndCharacter = new DndCharacter(rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getInt(7),rs.getInt(8),rs.getInt(9),rs.getInt(10));
+                DndCharacter dndCharacter = new DndCharacter(rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getInt(7),rs.getInt(8),rs.getInt(9),rs.getInt(10), rs.getInt(11), rs.getInt(12), rs.getInt(13));
                 dndCharacter.setId(rs.getInt(1));
                 result.add(dndCharacter);
             }
@@ -64,14 +67,14 @@ public class CharacterDaoJDBC implements CharacterDao {
     @Override
     public DndCharacter find(int id) {
         try (Connection conn = dataSource.getConnection()) {
-            String sql = "SELECT character_name, dice, character_level, strength, dexterity, constitution, intelligence, wisdom, charisma FROM dnd_character WHERE id = ?";
+            String sql = "SELECT character_name, dice, character_level, strength, dexterity, constitution, intelligence, wisdom, charisma, copper, silver, gold FROM dnd_character WHERE id = ?";
             PreparedStatement st = conn.prepareStatement(sql);
             st.setInt(1, id);
             ResultSet rs = st.executeQuery();
             if (!rs.next()) {
                 return null;
             }
-            DndCharacter dndCharacter = new DndCharacter(rs.getString(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getInt(7), rs.getInt(8), rs.getInt(9));
+            DndCharacter dndCharacter = new DndCharacter(rs.getString(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getInt(5), rs.getInt(6), rs.getInt(7), rs.getInt(8), rs.getInt(9), rs.getInt(10), rs.getInt(11), rs.getInt(12));
             dndCharacter.setId(id);
             return dndCharacter;
         } catch (SQLException e) {
@@ -83,7 +86,7 @@ public class CharacterDaoJDBC implements CharacterDao {
     @Override
     public void update(DndCharacter character) {
         try (Connection conn = dataSource.getConnection()) {
-            String sql = "UPDATE dnd_character SET character_name = ?, dice = ?, character_level = ?, strength = ?, dexterity = ?, constitution = ?, intelligence = ?, wisdom = ?, charisma = ? WHERE id = ?";
+            String sql = "UPDATE dnd_character SET character_name = ?, dice = ?, character_level = ?, strength = ?, dexterity = ?, constitution = ?, intelligence = ?, wisdom = ?, charisma = ?, copper = ?, silver = ?, gold = ? WHERE id = ?";
             PreparedStatement st = conn.prepareStatement(sql);
 
             st.setString(1, character.getCharacterName());
@@ -95,7 +98,10 @@ public class CharacterDaoJDBC implements CharacterDao {
             st.setInt(7, character.getIntelligence());
             st.setInt(8, character.getWisdom());
             st.setInt(9, character.getCharisma());
-            st.setInt(10, character.getId());
+            st.setInt(10, character.getCopper());
+            st.setInt(11, character.getSilver());
+            st.setInt(12, character.getGold());
+            st.setInt(13, character.getId());
 
             st.executeUpdate();
         } catch (SQLException e) {

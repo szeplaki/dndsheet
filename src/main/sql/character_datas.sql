@@ -9,5 +9,8 @@ CREATE TABLE dnd_character (
     constitution integer,
     intelligence integer,
     wisdom integer,
-    charisma integer
+    charisma integer,
+    copper integer,
+    silver integer,
+    gold integer
 );

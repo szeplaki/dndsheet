@@ -319,7 +319,6 @@
                     <div>
                         <label>Armor Class</label>
                         <input name="ac" id="armor-class" placeholder="10" type="text" disabled/>
-<!--                        <span id="armor-class">10</span>-->
                     </div>
                 </div>
                 <div class="initiative">
@@ -447,16 +446,16 @@
                     <div class="money">
                         <ul>
                             <li>
-                                <label>cp</label><input name="cp"/>
+                                <label>cp</label><input name="copper" th:value="${character.copper}" required>
                             </li>
                             <li>
-                                <label>sp</label><input name="sp"/>
+                                <label>sp</label><input name="silver" th:value="${character.silver}" required>
                             </li>
                             <li>
                                 <label>ep</label><input name="ep"/>
                             </li>
                             <li>
-                                <label>gp</label><input name="gp"/>
+                                <label>gp</label><input name="gold" th:value="${character.gold}" required>
                             </li>
                             <li>
                                 <label>pp</label><input name="pp"/>

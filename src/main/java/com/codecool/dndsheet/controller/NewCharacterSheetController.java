@@ -28,11 +28,14 @@ public class NewCharacterSheetController extends HttpServlet {
         int wisdomScore = Integer.parseInt(request.getParameter("wisdomScore"));
         int intelligenceScore = Integer.parseInt(request.getParameter("intelligenceScore"));
         int charismaScore = Integer.parseInt(request.getParameter("charismaScore"));
+        int copper = Integer.parseInt(request.getParameter("copper"));
+        int silver = Integer.parseInt(request.getParameter("silver"));
+        int gold = Integer.parseInt(request.getParameter("gold"));
 
         DataBaseManager dataBaseManager = new DataBaseManager();
         dataBaseManager.run();
 
-        DndCharacter character = new DndCharacter(charName, charClass, level, strengthCore, dexterityScore, constitutionScore, wisdomScore, intelligenceScore, charismaScore);
+        DndCharacter character = new DndCharacter(charName, charClass, level, strengthCore, dexterityScore, constitutionScore, wisdomScore, intelligenceScore, charismaScore, copper, silver, gold);
 
         CharacterDaoJDBC characterDaoJDBC = dataBaseManager.getCharacterDaoJDBC();
         characterDaoJDBC.add(character);
