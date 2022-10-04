@@ -43,6 +43,6 @@ https://www.jetbrains.com/help/idea/open-close-and-move-projects.html
 
 Java, SQL, Thymeleaf, Servlets, Java DAO pattern, JavaScript, HTML, CSS
 
-## The sheet itself can be founded on the internet, I borrowed it for my work: 
+## The sheet itself can be found on the internet, I borrowed it for my work: 
 
 https://media.wizards.com/2016/dnd/downloads/5E_CharacterSheet_Fillable.pdf
